@@ -2,6 +2,8 @@
 
 This is a build matrix for various UI components built in TypeScript.  In particular, it was created for the bg_img_size.ts.adligo.org set of projects.  In addition, it will be the first to convert off of my common JavaScript module build matrix builds into a pure TypeScript build with Bun.
 
+[SETUP_UI_BM_ENVIRONMENT.md](SETUP_UI_BM_ENVIRONMENT.md)
+
 ## 1) Build Adligo.org Typescript UI stuff Locally From the [Github.com](https://github.com/adligo) Projects
 
 [docs/BUILD_EVERYTHING_LOCALLY.md](./docs/BUILD_EVERYTHING_LOCALLY.md)
