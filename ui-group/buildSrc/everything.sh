@@ -3,6 +3,9 @@
 # Not in use from Jenkins
 
 echo "everything.sh starting"
+LIBS_PROJECT=ui_group.ts.adligo.org
+DEPS_PROJECT=ui_group_deps.ts.adligo.org
+
 VEBOSE=true
 SSL=false
 while (( "$#" )); do
@@ -20,7 +23,7 @@ if [[ $VERBOSE == "true" ]]; then
 fi
   
 #
-# This is must be the slink_bm.ts.adligo.org/slink-group path
+# This is must be the ui_bm.ts.adligo.org/ui-group path
 # 
 if [[ -z $ROOT_DIR ]]; then
   echo "A root_dir is required."
@@ -39,32 +42,32 @@ else
 fi
 
 if [[ $VERBOSE == "true" ]]; then
-  ./buildSrc/cloneOrPullDeps.sh --verbose
+  ./buildSrc/cloneOrPull.sh -p $DEPS_PROJECT --verbose
 else
-  ./buildSrc/cloneOrPullDeps.sh 
+  ./buildSrc/cloneOrPull.sh -p $DEPS_PROJECT 
 fi
 EXIT_CODE=$?
 if (( $EXIT_CODE == 0 )); then
   if [[ $VERBOSE == "true" ]]; then
-    echo "cloneOrPullDeps.sh executed sucessfully"
+    echo "cloneOrPull.sh -p $DEPS_PROJECT executed sucessfully"
   fi
 else
-  echo "There was a problem cloneOrPullDeps.sh"
+  echo "There was a problem cloneOrPull.sh -p $DEPS_PROJECT "
   exit 21
 fi
 
 if [[ $VERBOSE == "true" ]]; then
-  ./buildSrc/cloneOrPullLibs.sh --verbose
+  ./buildSrc/cloneOrPull.sh -p $LIBS_PROJECT --verbose
 else
-  ./buildSrc/cloneOrPullLibs.sh
+  ./buildSrc/cloneOrPull.sh -p $LIBS_PROJECT 
 fi
 EXIT_CODE=$?
 if (( $EXIT_CODE == 0 )); then
   if [[ $VERBOSE == "true" ]]; then
-    echo "cloneOrPullLibs.sh executed sucessfully"
+    echo "cloneOrPullLibs.sh  -p $LIBS_PROJECT executed sucessfully"
   fi
 else
-  echo "There was a problem cloneOrPullLibs.sh"
+  echo "There was a problem cloneOrPull.sh -p $LIBS_PROJECT "
   exit 32
 fi
 
@@ -84,7 +87,7 @@ function doCd() {
 
 echo "85 in everything.sh"
 pwd
-doCd ui_group.ts.adligo.org
+doCd $LIBS_PROJECT
 
 npm run setup
 EXIT_CODE=$?
