@@ -40,7 +40,22 @@ git clone https://github.com/adligo/ui_bm.ts.adligo.org.git
 Install [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html) and [c8](https://github.com/bcoe/c8) globally.  
 
 ```
-npm install -g typescript c8
+# Note you will want something other than @typescript/typescript-win32-x64 for unix systems
+npm install -g typescript c8 @typescript/typescript-win32-x64
+```
+
+Add tsc and c8 to your path
+
+```
+PATH=$PATH:~/AppData/Roaming/npm/node_modules/c8/bin:~/AppData/Roaming/npm/node_modules/typescript/bin
+# Or Unix
+export PATH=$PATH:/usr/local/lib/node_modules/c8/bin:/usr/local/lib/node_modules/typescript/bin
+```
+
+```
+# Also if you need the Windows path, for Jenkins, it's something like this;
+C:\Users\<your_username/>\AppData\Roaming\npm\node_modules\c8\bin
+C:\Users\<your_username/>\AppData\Roaming\npm\node_modules\typescript\bin
 ```
 
 ### [Install SLink and add it to your Path](https://www.npmjs.com/package/@ts.adligo.org/slink)
