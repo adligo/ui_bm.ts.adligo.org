@@ -49,9 +49,11 @@ Make sure you are using the <strong><b>setup_from_github_https.sh</b></strong> s
 
 ### Step 7)
 
-Now you can run the following build and test commands at any point;
+Now you can run the following build and test commands at any point, from the
+ui_bm.ts.adligo.org/ui-group/ui_group.ts.adligo.org directory;
 
 ```
+npm run setup
 npm run build
 npm run tests
 ```

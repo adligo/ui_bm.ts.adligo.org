@@ -35,6 +35,22 @@ curl -fsSL https://bun.sh/install | bash -s "bun-v1.3.3"
 git clone https://github.com/adligo/ui_bm.ts.adligo.org.git
 ```
 
+# Setup the c8 code coverage tool globally
+
+Install [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html) and [c8](https://github.com/bcoe/c8) globally.  
+
+```
+npm install -g typescript c8
+```
+
+### [Install SLink and add it to your Path](https://www.npmjs.com/package/@ts.adligo.org/slink)
+
+Note this is somewhat counter intuitive [@see note](https://github.com/adligo/slink_bm.ts.adligo.org/tree/main?tab=readme-ov-file#slink-historical-notes);
+
+```
+npm install -g @ts.adligo.org/slink
+```
+
 # Clone the main subprojects
 
 ##### ui_group 
@@ -52,4 +68,21 @@ cd ui_bm.ts.adligo.org/ui-group
 # Or alternativly
 git clone git@github.com:adligo/ui_group.ts.adligo.org.git
 git clone git@github.com:adligo/ui_group_deps.ts.adligo.org.git
+```
+
+# Install the Dependencies
+
+```
+cd ui_bm.ts.adligo.org/ui-group/ui_group_deps.ts.adligo.org
+npm install
+```
+
+
+# Setup the Projects
+
+This step creates a symbolic link between each ts.adligo.org project's node_modules and ui_bm.ts.adligo.org/ui-group/ui_group_deps.ts.adligo.org/node_modules.  Also, when the ts.adligo.org projects are built, they are installed into the ui_bm.ts.adligo.org/ui-group/ui_group_deps.ts.adligo.org/node_modules directory so that down stream projects can see their code.
+
+```
+cd ui_bm.ts.adligo.org/ui-group/ui_group.ts.adligo.org
+npm install
 ```
